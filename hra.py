@@ -7,6 +7,8 @@ pygame.init()
 SCREEN_WIDTH = 563
 SCREEN_HEIGHT = 630
 
+# pes
+
 TEXT_COLOUR = (255,255,255)
 font = pygame.font.SysFont("arialblack",30)
 
