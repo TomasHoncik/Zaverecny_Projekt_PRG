@@ -208,7 +208,7 @@ def update_player():
                 if list(square[0]) in points:
                     game_score += 1
                     points.remove(list(square[0]))
-                    print(game_score)
+
 
 
 
@@ -222,7 +222,7 @@ def update_player():
                     if list(square[0]) in points:
                         game_score += 1
                         points.remove(list(square[0]))
-                        print(game_score)
+
                 y_difference = square[0].bottom - character_rect.top
                 jump_height = 0
             elif jump_height >= 0:  # Falling down
