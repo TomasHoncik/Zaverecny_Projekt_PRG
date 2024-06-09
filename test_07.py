@@ -173,7 +173,7 @@ def draw_square(level_number):
             pygame.draw.rect(screen, square_color, square_info)
 
 def update_player():
-    global game_state, game_score, level_counter, last_edge_touched
+    global game_state, game_score, level_counter, last_edge_touched, square_touched
     jumped = False
     jump_height = 0
     x_difference = 0
@@ -203,8 +203,8 @@ def update_player():
                 if list(square[0]) in points:
                     game_score += 1
                     points.remove(list(square[0]))
-                    draw_text(f"{game_score} X",font, (255,255,255),50,50)
                     print(game_score)
+
 
 
             x_difference = 0
@@ -223,12 +223,10 @@ def update_player():
             elif jump_height >= 0:  # Falling down
                 if square[1] == (1, 50, 32):
                     game_state = "lost"
-                    print(game_state)
                 if square[1] == (144,238,144):
                     if list(square[0]) in points:
                         game_score += 1
                         points.remove(list(square[0]))
-                        print(game_score)
                 y_difference = square[0].top - character_rect.bottom
                 jump_height = 0
 
@@ -289,11 +287,13 @@ while run:
         draw_grid()
         draw_square(level_counter)
         update_player()
+        draw_text(f"{game_score} X",font, (255,255,255),0,0)
         draw_player()
 
     if game_state == "lost":
         points = [[650,100,50,50],[150,50,50,50],[0,0,50,50],[300,200,50,50],[500,150,50,50],[350,0,50,50], [450,50,50,50],[500,150,50,50],[100,300,50,50],[0,300,50,50],[150,300,50,50], [250,300,50,50],[450,300,50,50],[550,300,50,50],[50,50,50,50],[600,50,50,50],[300,300,50,50],[450,150,50,50],[600,0,50,50]]
         level_counter = 0
+        game_score = 0
         lost_button.visible = True
         lost_text.visible = True
         menu_button.visible = False
