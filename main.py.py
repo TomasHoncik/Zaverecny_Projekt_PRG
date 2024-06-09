@@ -1,7 +1,12 @@
 import pygame
 import pygame_gui
 
+img = pygame.image.load("assets/character.png")
+
+
 pygame.init()
+pygame.display.set_caption("CUBIQ")
+pygame.display.set_icon(img)
 
 SCREEN_WIDTH = 700  # 14
 SCREEN_HEIGHT = 350  # 10
@@ -18,7 +23,7 @@ game_state = "menu"
 global level_counter
 level_counter = 0
 global game_score
-game_score = 0
+game_score = 18
 last_edge_touched = None
 font = pygame.font.SysFont("Arial",30)
 
@@ -310,8 +315,11 @@ while run:
         won_text.visible = False   
     if game_state == "end":
         if game_score >= 18:
-            lost_button.visible = True
             won_text.visible = True
+            menu_button.visible = False
+            menu_text.visible = False
+
+
 
             UI_MANAGER.draw_ui(screen)
         else:
