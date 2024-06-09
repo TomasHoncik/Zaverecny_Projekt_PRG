@@ -23,7 +23,7 @@ game_state = "menu"
 global level_counter
 level_counter = 0
 global game_score
-game_score = 18
+game_score = 0
 last_edge_touched = None
 font = pygame.font.SysFont("Arial",30)
 
